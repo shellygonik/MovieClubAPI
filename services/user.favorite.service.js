@@ -7,10 +7,12 @@ export const addFavoriteMovie = async (
     movieId
 ) => {
 
+    // Verify that the authenticated user matches the requested user
     if (loggedInUserId !== Number(userId)) {
         throw new Error('Unauthorized access');
     }
 
+    // Find the requested user
     const user = users.find(
         user => user.id === Number(userId)
     );
@@ -19,6 +21,7 @@ export const addFavoriteMovie = async (
         throw new Error('User not found');
     }
 
+    // Find the requested movie
     const movie = movies.find(
         movie => movie.id === Number(movieId)
     );
@@ -27,6 +30,7 @@ export const addFavoriteMovie = async (
         throw new Error('Movie not found');
     }
 
+    // Check if the movie is already in the favorites list
     const alreadyFavorite = user.favoriteMovies.includes(
         Number(movieId)
     );
@@ -35,6 +39,7 @@ export const addFavoriteMovie = async (
         throw new Error('Movie already added to favorites');
     }
 
+    // Add the movie to the favorites list
     user.favoriteMovies.push(Number(movieId));
 
     return {
@@ -47,10 +52,12 @@ export const getFavoriteMovies = async (
     userId
 ) => {
 
+    // Verify that the authenticated user matches the requested user
     if (loggedInUserId !== Number(userId)) {
         throw new Error('Unauthorized access');
     }
 
+    // Find the requested user
     const user = users.find(
         user => user.id === Number(userId)
     );
@@ -59,6 +66,7 @@ export const getFavoriteMovies = async (
         throw new Error('User not found');
     }
 
+    // Return all favorite movies of the user
     const favoriteMovies = movies.filter(
         movie => user.favoriteMovies.includes(movie.id)
     );

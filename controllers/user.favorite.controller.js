@@ -6,9 +6,11 @@ import {
 export const addFavorite = async (req, res) => {
     try {
 
+        // Get the user id and movie id from the request
         const { id } = req.params;
         const { movieId } = req.body;
 
+        // Add a movie to the user's favorites
         const result = await addFavoriteMovie(
             req.user.id,
             id,
@@ -29,8 +31,10 @@ export const addFavorite = async (req, res) => {
 export const getFavorites = async (req, res) => {
     try {
 
+        // Get the user id from the request parameters
         const { id } = req.params;
 
+        // Retrieve the user's favorite movies
         const result = await getFavoriteMovies(
             req.user.id,
             id

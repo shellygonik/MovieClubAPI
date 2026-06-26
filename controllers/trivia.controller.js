@@ -5,6 +5,7 @@ import {
 export const getTrivia = async (req, res) => {
     try {
 
+        // Get a random movie trivia question
         const result = await getTriviaQuestion();
 
         res.status(200).json(result);

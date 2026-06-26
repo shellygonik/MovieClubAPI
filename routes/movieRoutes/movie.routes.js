@@ -7,11 +7,13 @@ import {
 
 const router = express.Router();
 
+// Route for retrieving all movies
 router.get(
     '/',
     getMovies
 );
 
+// Route for retrieving a movie by its ID
 router.get(
     '/:id',
     getMovie

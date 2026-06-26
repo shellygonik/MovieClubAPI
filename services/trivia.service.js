@@ -2,6 +2,7 @@ import { dateTimeFormater_il } from '../utils/dateTimeFormater_il.js';
 
 export const getTriviaQuestion = async () => {
 
+    // Fetch a random trivia question
     const response = await fetch(
         'https://opentdb.com/api.php?amount=1'
     );
@@ -12,6 +13,7 @@ export const getTriviaQuestion = async () => {
 
     const now = new Date();
 
+    // Return the trivia question with the current date and time
     return {
         question: trivia.question,
         correctAnswer: trivia.correct_answer,

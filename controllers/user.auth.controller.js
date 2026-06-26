@@ -6,8 +6,10 @@ import {
 export const register = async (req, res) => {
     try {
 
+        // Get user credentials from the request body
         const { username, password } = req.body;
 
+        // Register a new user
         const result = await registerUser(
             username,
             password
@@ -27,8 +29,10 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
 
+        // Get user credentials from the request body
         const { username, password } = req.body;
 
+        // Authenticate the user
         const result = await loginUser(
             username,
             password

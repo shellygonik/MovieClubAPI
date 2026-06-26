@@ -6,8 +6,8 @@ import movieExternalRoutes from './movie.external.routes.js';
 const router = express.Router();
 
 /*
-    חשוב:
-    search חייב לבוא לפני :id
+    Register external movie routes before routes with :id
+    so that /search is not treated as a movie ID.
 */
 
 router.use(

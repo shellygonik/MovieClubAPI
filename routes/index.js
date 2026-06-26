@@ -6,10 +6,13 @@ import triviaRoutes from './triviaRoutes/index.js';
 
 const router = express.Router();
 
+// Register movie routes
 router.use('/movies', movieRoutes);
 
+// Register user routes
 router.use('/users', userRoutes);
 
+// Register trivia routes
 router.use('/trivia', triviaRoutes);
 
 export default router;

@@ -6,6 +6,7 @@ import {
 
 const router = express.Router();
 
+// Route for searching a movie by title
 router.get(
     '/search',
     searchMovie

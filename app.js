@@ -6,24 +6,21 @@ const logger = createLogger('APP');
 
 const app = express();
 
+// Parse incoming JSON requests
 app.use(express.json());
 
-/*app.use((req, res, next) => {
-    logger.info(`${req.method} ${req.originalUrl}`);
-    next();
-});*/
-
+// Log every incoming request
 app.use((req, res, next) => {
-
-    console.log('REQUEST:', req.method, req.originalUrl);
 
     logger.info(`${req.method} ${req.originalUrl}`);
 
     next();
 });
 
+// Register all API routes
 app.use('/api', routes);
 
+// Default route
 app.get('/', (req, res) => {
     res.send('Movie Club API is running');
 });
